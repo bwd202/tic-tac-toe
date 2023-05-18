@@ -1,0 +1,33 @@
+* {
+  /* border: 1px gray solid; */
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+}
+
+main {
+  display: grid;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 200px);
+  /* border: 1px solid gray; */
+}
+
+.board {
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.right-border {
+  border-right: 1px gray solid;
+}
+
+.board.bottom-row {
+  border-bottom: 1px gray solid;
+}

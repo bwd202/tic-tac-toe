@@ -5,7 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic tac toe</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <a href="#">Share</a>
+    </header>
+    <main>
+      <div class="header">
+        <input type="text" placeholder="Player name" /><button>
+          Add player
+        </button>
+      </div>
+      <div class="main">
+        <h2>Player vs Computer</h2>
+        <div id="board">
+          <div class="board top-row"></div>
+          <div class="board top-row"></div>
+          <div class="board top-row right-border"></div>
+          <div class="board mid-row"></div>
+          <div class="board mid-row"></div>
+          <div class="board mid-row right-border"></div>
+          <div class="board bottom-row"></div>
+          <div class="board bottom-row"></div>
+          <div class="board bottom-row right-border"></div>
+        </div>
+        <div class="footer">
+          <button>Reset</button>
+          <button>Undo move</button>
+        </div>
+      </div>
+    </main>
+    <footer>Made by Bohemien <a href="#">github</a></footer>
+  </body>
 </html>
