@@ -20,6 +20,7 @@ main {
 }
 
 .board {
+  position: relative;
   border-top: 1px gray solid;
   border-left: 1px gray solid;
 }
@@ -30,4 +31,14 @@ main {
 
 .board.bottom-row {
   border-bottom: 1px gray solid;
+}
+
+.board-content {
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* to center X */
+  scale: 6;
 }
