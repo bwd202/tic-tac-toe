@@ -1,8 +1,16 @@
-let board = document.querySelectorAll('.board')
-
-board.forEach(item => {
-    item.addEventListener('click', play)
-})
+let board = {
+    items: document.querySelectorAll('.board').forEach(item => {
+        item.addEventListener('click', play)
+    }),
+    topRow: [],
+    middleRow: [],
+    bottomRow: [],
+    firstColumn: [],
+    secondColumn: [],
+    thirdColumn: [],
+    topBottomDiagonal: [],
+    bottomTopDiagonal: []
+}
 
 function play(event) {
     let mark = document.createElement('span')

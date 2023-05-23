@@ -21,15 +21,21 @@
       <div class="main">
         <h2>Player vs Computer</h2>
         <div id="board">
-          <div class="board top-row"></div>
-          <div class="board top-row"></div>
-          <div class="board top-row right-border"></div>
-          <div class="board mid-row"></div>
-          <div class="board mid-row"></div>
-          <div class="board mid-row right-border"></div>
-          <div class="board bottom-row"></div>
-          <div class="board bottom-row"></div>
-          <div class="board bottom-row right-border"></div>
+          <div class="board top-row first-column top-bottom-diagonal"></div>
+          <div class="board top-row second-column"></div>
+          <div
+            class="board top-row right-border third-column bottom-top-diagonal"
+          ></div>
+          <div class="board middle-row first-column"></div>
+          <div
+            class="board middle-row second-column top-bottom-diagonal bottom-top-diagonal"
+          ></div>
+          <div class="board middle-row right-border third-column"></div>
+          <div class="board bottom-row first-column bottom-top-diagonal"></div>
+          <div class="board bottom-row second-column"></div>
+          <div
+            class="board bottom-row right-border third-column top-bottom-diagonal"
+          ></div>
         </div>
         <div class="footer">
           <button>Reset</button>
