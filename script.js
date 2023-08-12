@@ -14,10 +14,25 @@
 // 
 
 (function game() {
+
+    let gameFlow = () => {
+        
+        let firstPlay = coinToss()
+
+        if(firstPlay == 'playerOne') playerOne.play()
+
+        else playerTwo.play()
+
+    }
     
     let board = document.querySelectorAll('.board')
 
-    board.forEach(item => item.addEventListener('click', play))
+    board.forEach(item => item.addEventListener('click', gameFlow))
+
+    let cell = document.createElement('span')
+
+    cell.classList.add('board-content')
+
 
     let coinToss = function() {
         let x = 0
@@ -37,12 +52,6 @@
 
     }
 
-    let gameFlow = () => {
-
-    }
-
-    gameFlow()
-
     let playerFactory = (name, mark) => {
 
         let makeMove = () => {
@@ -51,10 +60,10 @@
 
         let play = (event) => {
 
-            mark = document.createElement('span').textContent
-            mark.classList.add('board-content')
-            if(event.target.hasChildNodes()) return
-            // to prevent adding more Xs
+            let currentPlayer //player's turn
+
+            if(event.target.hasChildNodes()) return  // to prevent adding more Xs
+           
             event.target.append(mark)
         }
         
