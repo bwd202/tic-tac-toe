@@ -15,13 +15,13 @@
 
 (function game() {
 
-    let gameFlow = () => {
+    let gameFlow = (event) => {
         
         let firstPlay = coinToss()
 
-        if(firstPlay == 'playerOne') playerOne.play()
+        if(firstPlay == 'playerOne') playerOne.play(event)
 
-        else playerTwo.play()
+        else playerTwo.play(event)
 
     }
     
@@ -43,7 +43,7 @@
         
         // console.log(x)
 
-        return x ? 'playerOne' : 'playerTwo'
+        return x ? 'playerOne' : 'playerTwo' //1 for playerOne, 0 for playerTwo
         }
     }
 
@@ -60,7 +60,7 @@
 
         let play = (event) => {
 
-            let currentPlayer //player's turn
+            // let currentPlayer //player's turn
 
             if(event.target.hasChildNodes()) return  // to prevent adding more Xs
            
