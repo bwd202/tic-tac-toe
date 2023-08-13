@@ -15,6 +15,19 @@
 
 (function game() {
 
+    let coinToss = function() {
+        let x = 0
+
+        for(let i = 100; i > 0; i--) {
+        
+        x = Math.round(Math.random())
+        
+        // console.log(x)
+
+        return x ? 'playerOne' : 'playerTwo' //1 for playerOne, 0 for playerTwo
+        }
+    }
+
     let gameFlow = (event) => {
         
         let firstPlay = coinToss()
@@ -29,23 +42,11 @@
 
     board.forEach(item => item.addEventListener('click', gameFlow))
 
-    let cell = document.createElement('span')
+    // let cell = document.createElement('span')
 
-    cell.classList.add('board-content')
+    // cell.classList.add('board-content') 
 
-
-    let coinToss = function() {
-        let x = 0
-
-        for(let i = 100; i > 0; i--) {
-        
-        x = Math.round(Math.random())
-        
-        // console.log(x)
-
-        return x ? 'playerOne' : 'playerTwo' //1 for playerOne, 0 for playerTwo
-        }
-    }
+    // document.appendChild(cell)
 
     let gameboard = {
         board: [[0,0,0], [0,0,0], [0,0,0]],
@@ -59,6 +60,7 @@
         }
 
         let play = (event) => {
+
 
             // let currentPlayer //player's turn
 
