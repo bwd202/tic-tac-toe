@@ -3,22 +3,24 @@
 
     let playerFactory = (name, mark) => {
 
-        let makeMove = () => {
-            // console.log(name + " makes a move")
-        }
-
         let play = (event) => {
 
-
+            let square = event.target
             // let currentPlayer //player's turn
 
-            if(event.target.hasChildNodes()) return  // to prevent adding more Xs
+            if(square.hasChildNodes()) return  // to prevent adding more Xs
            
-            event.target.append(mark)
+            square.append(mark)
+
+            for(item in gameboard.innerBoard) {
+                console.log(item)
+            }
+
+
         }
         
 
-        return {name, makeMove, play}
+        return {name, play}
     }
 
     playerOne = playerFactory('frodo', 'x')
@@ -76,13 +78,13 @@
 
         },
         
-        getMark() {
-            let board = Array.from(outerBoard).map(item => item.textContent)
-            return board.map()
-        }
+        // getMark() {
+        //     let board = Array.from(outerBoard).map(item => item.textContent)
+        //     return board.map()
+        // }
 
     }
 
-    console.log(gameboard.getMark())
+    // console.log(gameboard.getMark())
  
 })()
