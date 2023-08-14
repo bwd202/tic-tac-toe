@@ -1,17 +1,3 @@
-// let board = {
-//     
-//     }),
-//     topRow: [],
-//     middleRow: [],
-//     bottomRow: [],
-//     firstColumn: [],
-//     secondColumn: [],
-//     thirdColumn: [],
-//     topBottomDiagonal: [],
-//     bottomTopDiagonal: []
-// }
-
-// 
 
 (function game() {
 
@@ -77,10 +63,22 @@
     // document.appendChild(cell)
 
     let gameboard = {
-        innerBoard: [[0,0,0], [0,0,0], [0,0,0]],
+        innerBoard: {
+                        
+            topRow: [],
+            middleRow: [],
+            bottomRow: [],
+            firstColumn: [],
+            secondColumn: [],
+            thirdColumn: [],
+            topBottomDiagonal: [],
+            bottomTopDiagonal: []
+
+        },
+        
         getMark() {
-            let board = Array.from(outerBoard)
-            return board
+            let board = Array.from(outerBoard).map(item => item.textContent)
+            return board.map()
         }
 
     }
