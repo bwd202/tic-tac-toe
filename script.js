@@ -16,16 +16,9 @@
 (function game() {
 
     let coinToss = function() {
-        let x = 0
 
-        for(let i = 100; i > 0; i--) {
-        
-        x = Math.round(Math.random())
-        
-        // console.log(x)
-
-        return x ? 'playerOne' : 'playerTwo' //1 for playerOne, 0 for playerTwo
-        }
+        return Math.round(Math.random()) ? 'playerOne' : 'playerTwo' //1 for playerOne, 0 for playerTwo
+    
     }
 
     let gameFlow = (event) => {
