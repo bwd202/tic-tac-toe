@@ -84,5 +84,7 @@
         }
 
     }
+
+    console.log(gameboard.getMark())
  
 })()
