@@ -64,9 +64,9 @@
 
     }
     
-    let board = document.querySelectorAll('.board')
+    let outerBoard = document.querySelectorAll('.board')
 
-    board.forEach(item => item.addEventListener('click', gameFlow))
+    outerBoard.forEach(item => item.addEventListener('click', gameFlow))
 
    
 
@@ -77,12 +77,12 @@
     // document.appendChild(cell)
 
     let gameboard = {
-        board: [[0,0,0], [0,0,0], [0,0,0]],
+        innerBoard: [[0,0,0], [0,0,0], [0,0,0]],
+        getMark() {
+            let board = Array.from(outerBoard)
+            return board
+        }
 
     }
  
-
-
-
-
 })()
