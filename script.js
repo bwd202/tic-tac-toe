@@ -1,5 +1,5 @@
 
-(function game() {
+let game = (() =>{
 
     let playerFactory = (name, mark) => {
 
@@ -12,10 +12,12 @@
            
             square.append(mark)
 
-            // for(item in gameboard.innerBoard) {
-            //     console.log(item)
-            // }
 
+            switch(square.dataset.value) {
+                case '1':
+                    gameboard.innerBoard.topRow.push(mark)
+                    console.log(gameboard)
+            }
 
         }
         
@@ -65,26 +67,20 @@
     // document.appendChild(cell)
 
     let gameboard = {
-        innerBoard: {
-                        
-            topRow: [],
-            middleRow: [],
-            bottomRow: [],
-            firstColumn: [],
-            secondColumn: [],
-            thirdColumn: [],
-            topBottomDiagonal: [],
-            bottomTopDiagonal: []
+               
+        topRow: [],
+        middleRow: [],
+        bottomRow: [],
+        firstColumn: [],
+        secondColumn: [],
+        thirdColumn: [],
+        topBottomDiagonal: [],
+        bottomTopDiagonal: []
 
-        },
-        
-        // getMark() {
-        //     let board = Array.from(outerBoard).map(item => item.textContent)
-        //     return board.map()
-        // }
-
-    }
+        }
 
     // console.log(gameboard.getMark())
+
+    return {gameboard}
  
 })()
