@@ -12,9 +12,9 @@
            
             square.append(mark)
 
-            for(item in gameboard.innerBoard) {
-                console.log(item)
-            }
+            // for(item in gameboard.innerBoard) {
+            //     console.log(item)
+            // }
 
 
         }
