@@ -96,14 +96,6 @@ let game = (() =>{
 
     outerBoard.forEach(item => item.addEventListener('click', gameFlow))
 
-   
-
-    // let cell = document.createElement('span')
-
-    // cell.classList.add('board-content') 
-
-    // document.appendChild(cell)
-
     let gameboard = {
                
         topRow: [],
@@ -116,8 +108,6 @@ let game = (() =>{
         rtlDiagonal: []
 
         }
-
-    // console.log(gameboard.getMark())
 
     return {gameboard}
  
