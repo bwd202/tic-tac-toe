@@ -2,6 +2,10 @@
   /* border: 1px gray solid; */
 }
 
+button {
+  /* display: inline-block; */
+}
+
 body {
   min-height: 100vh;
   display: grid;
@@ -17,6 +21,20 @@ main > div:nth-child(odd) {
   /* justify-self: center; */
   text-align: center;
   padding: 30px 0;
+}
+
+main .header input {
+  margin-right: 10px;
+}
+
+main h2 {
+  text-align: center;
+}
+
+main .footer > button:first-child {
+  margin-right: 20px;
+  padding: 0 25px;
+  /* background-color: blue; */
 }
 
 #board {
