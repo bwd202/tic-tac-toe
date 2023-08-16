@@ -5,18 +5,17 @@ let game = (() =>{
 
         let play = (event) => {
 
-            let square = event.target
+            let cell = event.target
             // let currentPlayer //player's turn
 
-            if(square.hasChildNodes()) return  // to prevent adding more Xs
+            if(cell.hasChildNodes()) return  // to prevent adding more Xs
            
-            square.append(mark)
+            cell.append(mark)
 
 
-            switch(square.dataset.value) {
+            switch(cell.dataset.square) {
                 case '1':
-                    gameboard.innerBoard.topRow.push(mark)
-                    console.log(gameboard)
+                    gameboard.topRow.push(mark)
             }
 
         }
