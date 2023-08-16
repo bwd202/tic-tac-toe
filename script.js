@@ -1,6 +1,25 @@
 
 let game = (() => {
 
+    let checkWinner = function() {
+
+        for(array in gameboard) {
+
+            if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'x')) {
+
+                // console.log(gameboard[array])
+                
+                console.log('X wins')
+
+        } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'o')) {
+
+                console.log('O wins')
+        }
+    }
+    } 
+    
+    window.addEventListener('click', checkWinner)
+
     let playerFactory = (name, mark) => {
 
         let play = (event) => {
@@ -9,8 +28,6 @@ let game = (() => {
             // let currentPlayer //player's turn
 
             if(cell.hasChildNodes()) return  // to prevent adding more Xs
-
-            checkWinner()
            
             cell.append(mark)
 
@@ -79,23 +96,6 @@ let game = (() => {
 
     let displayPlayerNames = function() {
         document.querySelector('.player-name').textContent = playerOne.name + ' vs ' + playerTwo.name
-    }
-
-    let checkWinner = function() {
-
-        for(array in gameboard) {
-
-            if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'x')) {
-
-                // console.log(gameboard[array])
-                
-                console.log('X wins')
-
-        } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'o')) {
-
-                console.log('O wins')
-        }
-    }
     }
 
     let gameFlow = (event) => {
