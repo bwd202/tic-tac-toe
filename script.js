@@ -9,9 +9,10 @@ let game = (() => {
             // let currentPlayer //player's turn
 
             if(cell.hasChildNodes()) return  // to prevent adding more Xs
+
+            checkWinner()
            
             cell.append(mark)
-
 
             switch(cell.dataset.square) {
                 case '1':
@@ -84,9 +85,15 @@ let game = (() => {
 
         for(array in gameboard) {
 
-            if(array.length == 3 && array.every(item => item == 'x')) {
+            if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'x')) {
 
-                console.log('playerOne wins')      
+                // console.log(gameboard[array])
+                
+                console.log('X wins')
+
+        } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'o')) {
+
+                console.log('O wins')
         }
     }
     }
