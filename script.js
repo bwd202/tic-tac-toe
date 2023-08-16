@@ -1,5 +1,5 @@
 
-let game = (() =>{
+let game = (() => {
 
     let playerFactory = (name, mark) => {
 
@@ -78,6 +78,17 @@ let game = (() =>{
 
     let displayPlayerNames = function() {
         document.querySelector('.player-name').textContent = playerOne.name + ' vs ' + playerTwo.name
+    }
+
+    let checkWinner = function() {
+
+        for(array in gameboard) {
+
+            if(array.length == 3 && array.every(item => item == 'x')) {
+
+                console.log('playerOne wins')      
+        }
+    }
     }
 
     let gameFlow = (event) => {
