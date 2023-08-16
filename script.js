@@ -1,6 +1,30 @@
 
 let game = (() => {
 
+    let getPlayerName = function(name) {
+
+        name = document.querySelector('[placeholder="Player name"]').value
+
+        return name
+
+    }
+
+    let addNewPlayer = function() {
+
+        let name = getPlayerName()
+
+        let btn = document.querySelector('#add-player')
+
+        let nameArea = document.querySelector('.player-name:first-child')
+
+        btn.addEventListener('click', () => {
+            
+            nameArea.textContent = name
+        })
+
+        return playerFactory(name, 'x')
+    }
+
     let checkWinner = function() {
 
         for(array in gameboard) {
@@ -81,11 +105,7 @@ let game = (() => {
         return {name, play}
     }
 
-    playerOne = playerFactory('frodo', 'x')
-
-    playerTwo = playerFactory('terminator', 'o')
-
-    // playerOne.makeMove()
+    playerTwo = playerFactory('Computer', 'o')
 
 
     let coinToss = function() {
@@ -95,6 +115,9 @@ let game = (() => {
     }
 
     let displayPlayerNames = function() {
+
+        let playerOne = addNewPlayer()
+
         document.querySelector('.player-name').textContent = playerOne.name + ' vs ' + playerTwo.name
     }
 
@@ -127,6 +150,6 @@ let game = (() => {
 
         }
 
-    return {gameboard}
+    return {gameboard, getPlayerName, addNewPlayer}
  
 })()
