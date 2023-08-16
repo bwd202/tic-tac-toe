@@ -16,6 +16,45 @@ let game = (() =>{
             switch(cell.dataset.square) {
                 case '1':
                     gameboard.topRow.push(mark)
+                    gameboard.firstColumn.push(mark)
+                    gameboard.ltrDiagonal.push(mark)
+                    break
+                case '2':
+                    gameboard.topRow.push(mark)
+                    gameboard.secondColumn.push(mark)
+                    break
+                case '3':
+                    gameboard.topRow.push(mark)
+                    gameboard.thirdColumn.push(mark)
+                    gameboard.rtlDiagonal.push(mark)
+                    break
+                case '4':
+                    gameboard.middleRow.push(mark)
+                    gameboard.firstColumn.push(mark)
+                    break
+                case '5':
+                    gameboard.middleRow.push(mark)
+                    gameboard.secondColumn.push(mark)
+                    gameboard.ltrDiagonal.push(mark)
+                    gameboard.rtlDiagonal.push(mark)
+                    break
+                case '6':
+                    gameboard.middleRow.push(mark)
+                    gameboard.thirdColumn.push(mark)
+                    break
+                case '7':
+                    gameboard.bottomRow.push(mark)
+                    gameboard.firstColumn.push(mark)
+                    gameboard.rtlDiagonal.push(mark)
+                    break
+                case '8':
+                    gameboard.bottomRow.push(mark)
+                    gameboard.secondColumn.push(mark)
+                    break
+                case '9':
+                    gameboard.bottomRow.push(mark)
+                    gameboard.thirdColumn.push(mark)
+                    gameboard.ltrDiagonal.push(mark)            
             }
 
         }
@@ -73,8 +112,8 @@ let game = (() =>{
         firstColumn: [],
         secondColumn: [],
         thirdColumn: [],
-        topBottomDiagonal: [],
-        bottomTopDiagonal: []
+        ltrDiagonal: [],
+        rtlDiagonal: []
 
         }
 
