@@ -1,55 +1,6 @@
 
 let game = (() => {
 
-    let addNewPlayer = function() {
-
-        let playerName = document.querySelector('[placeholder="Player name"]').value
-
-        let newPlayer = playerFactory(playerName, 'x')
-        
-        return newPlayer
-    }
-
-    let displayPlayerNames = function() {
-
-        let playerOne = document.querySelector('.player-name:first-child')
-
-        let versus = document.querySelector('.player-name:nth-child(2)')
-
-        let playerTwo = document.querySelector('.player-name:nth-child(3)')
-
-        let newPlayer = addNewPlayer()
-
-        playerOne.textContent = newPlayer.name
-
-        versus.textContent = 'vs'
-
-        playerTwo.textContent = 'Computer'
-    }
-
-    let addPlayerBtn = document.querySelector('#add-player')
-
-    addPlayerBtn.addEventListener('click', displayPlayerNames)
-
-    let checkWinner = function() {
-
-        for(array in gameboard) {
-
-            if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'x')) {
-
-                // console.log(gameboard[array])
-                
-                console.log('X wins')
-
-        } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'o')) {
-
-                console.log('O wins')
-        }
-    }
-    } 
-    
-    window.addEventListener('click', checkWinner)
-
     let playerFactory = (name, mark) => {
 
         let play = (event) => {
@@ -111,7 +62,60 @@ let game = (() => {
         return {name, mark, play}
     }
 
+
+    let addNewPlayer = function() {
+
+        let playerName = document.querySelector('[placeholder="Player name"]').value
+
+        let newPlayer = playerFactory(playerName, 'x')
+        
+        return newPlayer
+    }
+
+    let playerOne = addNewPlayer()
+
     playerTwo = playerFactory('Computer', 'o')
+
+
+    let displayPlayerNames = function() {
+
+        let _playerOne = document.querySelector('.player-name:first-child')
+
+        let versus = document.querySelector('.player-name:nth-child(2)')
+
+        let _playerTwo = document.querySelector('.player-name:nth-child(3)')
+
+        _playerOne.textContent = playerOne.name
+
+        versus.textContent = 'vs'
+
+        _playerTwo.textContent = 'Computer'
+    }
+
+    let addPlayerBtn = document.querySelector('#add-player')
+
+    addPlayerBtn.addEventListener('click', displayPlayerNames)
+
+    let checkWinner = function() {
+
+        for(array in gameboard) {
+
+            if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'x')) {
+
+                // console.log(gameboard[array])
+                
+                console.log(playerOne.name + ' wins')
+
+        } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'o')) {
+
+                console.log(playerTwo.name + ' wins')
+        }
+    }
+    } 
+    
+    window.addEventListener('click', checkWinner)
+
+   
 
     let coinToss = function() {
 
@@ -121,8 +125,6 @@ let game = (() => {
     let gameFlow = (event) => {
         
         let whoseTurn = coinToss() ? 'playerOne' : 'playerTwo'
-
-        let playerOne = addNewPlayer()
 
         if(whoseTurn == 'playerOne') playerOne.play(event)
 
