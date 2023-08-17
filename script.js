@@ -100,13 +100,13 @@ let game = (() => {
 
         for(array in gameboard) {
 
-            if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'x')) {
+            if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'X')) {
 
                 // console.log(gameboard[array])
                 
                 console.log(playerOne.name + ' wins')
 
-        } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'o')) {
+        } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'O')) {
 
                 console.log(playerTwo.name + ' wins')
         }
