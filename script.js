@@ -7,7 +7,7 @@ let game = (() => {
 
         let newPlayer = playerFactory(playerName, 'x')
         
-        return newPlayer.name
+        return newPlayer
     }
 
     let displayPlayerNames = function() {
@@ -18,12 +18,13 @@ let game = (() => {
 
         let playerTwo = document.querySelector('.player-name:nth-child(3)')
 
-        playerOne.textContent = addNewPlayer()
+        let newPlayer = addNewPlayer()
+
+        playerOne.textContent = newPlayer.name
 
         versus.textContent = 'vs'
 
         playerTwo.textContent = 'Computer'
-
     }
 
     let addPlayerBtn = document.querySelector('#add-player')
@@ -112,18 +113,18 @@ let game = (() => {
 
     playerTwo = playerFactory('Computer', 'o')
 
-
     let coinToss = function() {
 
-        return Math.round(Math.random()) ? 'playerOne' : 'playerTwo' //1 -> player 1 turn, 0 -> player 2
-    
+        return Math.round(Math.random()) //1 or 0
     }
 
     let gameFlow = (event) => {
         
-        let firstPlay = coinToss()
+        let whoseTurn = coinToss() ? 'playerOne' : 'playerTwo'
 
-        if(firstPlay == 'playerOne') playerOne.play(event)
+        let playerOne = addNewPlayer()
+
+        if(whoseTurn == 'playerOne') playerOne.play(event)
 
         else playerTwo.play(event)
 
@@ -146,6 +147,6 @@ let game = (() => {
 
         }
 
-    return {gameboard, displayPlayerNames, addNewPlayer}
+    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow}
  
 })()
