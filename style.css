@@ -23,6 +23,10 @@ main h2 {
   text-align: center;
 }
 
+main .player-name {
+  padding: 0 5px;
+}
+
 main .footer > button:first-child {
   margin-right: 20px;
   padding: 0 25px;

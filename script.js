@@ -1,29 +1,34 @@
 
 let game = (() => {
 
-    let getPlayerName = function(name) {
-
-        name = document.querySelector('[placeholder="Player name"]').value
-
-        return name
-
-    }
-
     let addNewPlayer = function() {
 
-        let name = getPlayerName()
+        let playerName = document.querySelector('[placeholder="Player name"]').value
 
-        let btn = document.querySelector('#add-player')
-
-        let nameArea = document.querySelector('.player-name:first-child')
-
-        btn.addEventListener('click', () => {
-            
-            nameArea.textContent = name
-        })
-
-        return playerFactory(name, 'x')
+        let newPlayer = playerFactory(playerName, 'x')
+        
+        return newPlayer.name
     }
+
+    let displayPlayerNames = function() {
+
+        let playerOne = document.querySelector('.player-name:first-child')
+
+        let versus = document.querySelector('.player-name:nth-child(2)')
+
+        let playerTwo = document.querySelector('.player-name:nth-child(3)')
+
+        playerOne.textContent = addNewPlayer()
+
+        versus.textContent = 'vs'
+
+        playerTwo.textContent = 'Computer'
+
+    }
+
+    let addPlayerBtn = document.querySelector('#add-player')
+
+    addPlayerBtn.addEventListener('click', displayPlayerNames)
 
     let checkWinner = function() {
 
@@ -102,7 +107,7 @@ let game = (() => {
         }
         
 
-        return {name, play}
+        return {name, mark, play}
     }
 
     playerTwo = playerFactory('Computer', 'o')
@@ -114,16 +119,7 @@ let game = (() => {
     
     }
 
-    let displayPlayerNames = function() {
-
-        let playerOne = addNewPlayer()
-
-        document.querySelector('.player-name').textContent = playerOne.name + ' vs ' + playerTwo.name
-    }
-
     let gameFlow = (event) => {
-
-        displayPlayerNames()
         
         let firstPlay = coinToss()
 
@@ -150,6 +146,6 @@ let game = (() => {
 
         }
 
-    return {gameboard, getPlayerName, addNewPlayer}
+    return {gameboard, displayPlayerNames, addNewPlayer}
  
 })()
