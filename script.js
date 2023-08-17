@@ -92,6 +92,8 @@ let game = (() => {
         _playerTwo.textContent = 'Computer'
     }
 
+    // add player button
+
     let addPlayerBtn = document.querySelector('#add-player')
 
     addPlayerBtn.addEventListener('click', displayPlayerNames)
@@ -149,6 +151,12 @@ let game = (() => {
 
         }
 
-    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow}
+        // reset button
+
+        let resetBtn = document.querySelector('#reset')
+
+        resetBtn.addEventListener('click', () => window.location.reload())
+
+    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, resetBtn}
  
 })()
