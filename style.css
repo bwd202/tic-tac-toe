@@ -5,6 +5,10 @@ body {
   justify-items: center;
 }
 
+button {
+  width: 85px;
+}
+
 main {
   display: grid;
 }
@@ -29,8 +33,6 @@ main .player-name {
 
 main .footer > button:first-child {
   margin-right: 20px;
-  padding: 0 25px;
-  /* background-color: blue; */
 }
 
 #board {

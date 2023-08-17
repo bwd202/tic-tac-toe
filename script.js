@@ -67,14 +67,14 @@ let game = (() => {
 
         let playerName = document.querySelector('[placeholder="Player name"]').value
 
-        let newPlayer = playerFactory(playerName, 'x')
+        let newPlayer = playerFactory(playerName, 'X')
         
         return newPlayer
     }
 
     let playerOne = addNewPlayer()
 
-    playerTwo = playerFactory('Computer', 'o')
+    playerTwo = playerFactory('Computer', 'O')
 
 
     let displayPlayerNames = function() {
