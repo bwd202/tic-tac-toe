@@ -2,7 +2,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-rows: min-content 1fr min-content;
-  justify-items: center;
+  text-align: center;
 }
 
 button {
@@ -11,10 +11,10 @@ button {
 
 main {
   display: grid;
+  justify-items: center;
 }
 
 main > div:nth-child(odd) {
-  /* justify-self: center; */
   text-align: center;
   padding: 30px 0;
 }
@@ -23,7 +23,7 @@ main .header input {
   margin-right: 10px;
 }
 
-main h2 {
+h2 {
   text-align: center;
 }
 
@@ -43,17 +43,23 @@ main .footer > button:first-child {
 }
 
 .board {
-  position: relative;
   border-top: 1px gray solid;
   border-left: 1px gray solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
- /* .board .board {
+.cell {
   font-family: Arial, Helvetica, sans-serif;
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  height: 10%;
+  width: 10%;
+  scale: 8;
+  
+}
+
+ /* .cell {
+  
   scale: 110; /* to center X */
 
 .right-border {

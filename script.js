@@ -65,7 +65,7 @@ let game = (() => {
 
     let addNewPlayer = function() {
 
-        let playerName = document.querySelector('[placeholder="Player name"]').value
+        let playerName = document.querySelector('[placeholder]').value
 
         let newPlayer = playerFactory(playerName, 'X')
         

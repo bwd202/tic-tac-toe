@@ -1,48 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic tac toe</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <a href="#">Share</a>
-    </header>
-    <main>
-      <div class="header">
-        <input type="text" placeholder="Player name" /><button id="add-player">
-          Add player
-        </button>
-      </div>
-      <div class="main">
-        <h2><span class="player-name"></span><span class="player-name"></span><span class="player-name"></span></h2>
-        <div id="board">
-          <div class="board top-row first-column ltr-diagonal" data-square="1"></div>
-          <div class="board top-row second-column" data-square="2"></div>
-          <div
-            class="board top-row right-border third-column rtl-diagonal square-3" data-square="3"
-          ></div>
-          <div class="board middle-row first-column" data-square="4"></div>
-          <div
-            class="board middle-row second-column ltr-diagonal rtl-diagonal" data-square="5"
-          ></div>
-          <div class="board middle-row right-border third-column" data-square="6"></div>
-          <div class="board bottom-row first-column rtl-diagonal" data-square="7"></div>
-          <div class="board bottom-row second-column" data-square="8"></div>
-          <div
-            class="board bottom-row right-border third-column ltr-diagonal" data-square="9"
-          ></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic tac toe</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <a href="#">Share</a>
+  </header>
+  <main>
+    <div class="header">
+      <input type="text" placeholder="Player name" />
+      <button id="add-player">
+        Add player
+      </button>
+    </div>
+    <!-- main div -->
+    <div class="main">
+      <h2>
+        <span class="player-name"></span><span class="player-name"></span><span class="player-name"></span>
+      </h2>
+      <!-- board -->
+      <div id="board">
+        <div class="board top-row first-column ltr-diagonal">
+          <div class="cell" data-square="1"></div>
+        </div>
+        <div class="board top-row second-column">
+          <div class="cell" data-square="2"></div>
+        </div>
+        <div class="board top-row right-border third-column rtl-diagonal square-3">
+          <div class="cell" data-square="3"></div>
+        </div>
+        <div class="board middle-row first-column">
+          <div class="cell" data-square="4"></div>
+        </div>
+        <div class="board middle-row second-column ltr-diagonal rtl-diagonal">
+          <div class="cell" data-square="5"></div>
+        </div>
+        <div class="board middle-row right-border third-column">
+          <div class="cell" data-square="6"></div>
+        </div>
+        <div class="board bottom-row first-column rtl-diagonal">
+          <div class="cell" data-square="7"></div>
+        </div>
+        <div class="board bottom-row second-column">
+          <div class="cell" data-square="8"></div>
+        </div>
+        <div class="board bottom-row right-border third-column ltr-diagonal">
+          <div class="cell" data-square="9"></div>
         </div>
       </div>
+    </div>
+      <!-- footer -->
       <div class="footer">
         <button>Start</button>
         <button>Reset</button>
       </div>
-    </main>
-    <footer>Made by <a href="#">bwd</a> &copy; 2023</footer>
-  </body>
+  </main>
+  <footer>Made by <a href="#">bwd</a> &copy; 2023</footer>
+</body>
+
 </html>
