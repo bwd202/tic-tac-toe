@@ -1,9 +1,17 @@
 
 let game = (() => {
 
-    let playerFactory = (name, mark) => {
+    let playerFactory = (name, mark, turn) => {
+
+        this.name = name
+
+        this.turn = turn
 
         let play = (event) => {
+
+            let justPlayed = name
+
+            turn = false
 
             let cell = event.target
             // let currentPlayer //player's turn
@@ -56,8 +64,10 @@ let game = (() => {
                     gameboard.ltrDiagonal.push(mark)            
             }
 
+            return justPlayed, turn
         }
-        
+
+
 
         return {name, mark, play}
     }
@@ -124,11 +134,7 @@ let game = (() => {
 
     let gameFlow = (event) => {
         
-        let whoseTurn = coinToss() ? 'playerOne' : 'playerTwo'
-
-        if(whoseTurn == 'playerOne') playerOne.play(event)
-
-        else playerTwo.play(event)
+        let whoseTurn = coinToss() ? playerOne.play(event) : playerTwo.play(event)
 
     }
     
@@ -149,6 +155,6 @@ let game = (() => {
 
         }
 
-    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow}
+    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, playerFactory, playerOne, playerTwo}
  
 })()
