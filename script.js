@@ -131,12 +131,14 @@ let game = (() => {
 
     let coinToss = function() {
 
-        return Math.round(Math.random()) //1 or 0
+        return Math.round(Math.random()) ? playerOne.play() : playerTwo.play() //1 or 0
     }
 
     let gameFlow = (event) => {
         
-        let whoseTurn = coinToss() ? playerOne.play(event) : playerTwo.play(event)
+        // let whoseTurn = coinToss() ? playerOne.play(event) : playerTwo.play(event)
+
+        return event
 
     }
     
@@ -156,6 +158,12 @@ let game = (() => {
         rtlDiagonal: []
 
         }
+
+        // start button
+
+        let startBtn = document.querySelector('#start')
+
+        startBtn.addEventListener('click', coinToss)
 
         // reset button
 
