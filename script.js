@@ -132,9 +132,11 @@ let game = (() => {
         return Math.round(Math.random()) //1 or 0
     }
 
-    let gameFlow = (event) => {
+    let gameFlow = () => {
         
-        let whoseTurn = coinToss() ? playerOne.play(event) : playerTwo.play(event)
+        let whoseTurn = coinToss() ? playerOne.name : playerTwo.name
+
+        return whoseTurn
 
     }
 
