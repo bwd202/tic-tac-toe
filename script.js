@@ -125,17 +125,10 @@ let game = (() => {
         return Math.round(Math.random()) //1 or 0
     }
 
-    let whoseTurn = () => {
+    let gameFlow = () => {
         
-       return coinToss() ? playerOne.name : playerTwo.name
+        let whoseTurn = coinToss() ? playerOne.name : playerTwo.name
 
-    }
-
-    // board cells
-    
-    let outerBoard = document.querySelectorAll('.board')
-
-    outerBoard.forEach(item => item.addEventListener('click', () => {
         if(whoseTurn === playerOne.name) {
             playerOne.play()
             playerOne.justPlayed = true
@@ -143,7 +136,17 @@ let game = (() => {
             playerTwo.play()
             playerTwo.justPlayed = true
         }
-    }))
+
+
+        return whoseTurn
+
+    }
+
+    // board cells
+    
+    let outerBoard = document.querySelectorAll('.board')
+
+    outerBoard.forEach(item => item.addEventListener('click', gameFlow))
 
     let gameboard = {
                
