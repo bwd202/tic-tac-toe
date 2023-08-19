@@ -127,21 +127,11 @@ let game = (() => {
 
     let gameFlow = () => {
         
-
-        // if(whoseTurn === playerOne.name) {
-        //     playerOne.play()
-        //     playerOne.justPlayed = true
-        // } else {
-        //     playerTwo.play()
-        //     playerTwo.justPlayed = true
-        // }
-
+        let whoseTurn = coinToss() ? playerOne.name : playerTwo.name
 
         return whoseTurn
-
+    
     }
-
-    let whoseTurn = coinToss() ? playerOne.name : playerTwo.name
 
     // board cells
     
@@ -176,7 +166,7 @@ let game = (() => {
 
         let startBtn = document.querySelector('#start')
 
-        startBtn.addEventListener('click', coinToss)
+        startBtn.addEventListener('click', gameFlow)
 
         // reset button
 
