@@ -127,26 +127,37 @@ let game = (() => {
 
     let gameFlow = () => {
         
-        let whoseTurn = coinToss() ? playerOne.name : playerTwo.name
 
-        if(whoseTurn === playerOne.name) {
-            playerOne.play()
-            playerOne.justPlayed = true
-        } else {
-            playerTwo.play()
-            playerTwo.justPlayed = true
-        }
+        // if(whoseTurn === playerOne.name) {
+        //     playerOne.play()
+        //     playerOne.justPlayed = true
+        // } else {
+        //     playerTwo.play()
+        //     playerTwo.justPlayed = true
+        // }
 
 
         return whoseTurn
 
     }
 
+    let whoseTurn = coinToss() ? playerOne.name : playerTwo.name
+
     // board cells
     
-    let outerBoard = document.querySelectorAll('.board')
+    let board = document.querySelectorAll('.board')
 
-    outerBoard.forEach(item => item.addEventListener('click', gameFlow))
+    board.forEach(item => item.addEventListener('click', (event) => {
+
+        if(whoseTurn === playerOne.name) {
+            playerOne.play(event)
+            playerOne.justPlayed = true
+        } else {
+            playerTwo.play(event)
+            playerTwo.justPlayed = true
+        }
+
+    }))
 
     let gameboard = {
                
@@ -165,7 +176,7 @@ let game = (() => {
 
         let startBtn = document.querySelector('#start')
 
-        startBtn.addEventListener('click', gameFlow)
+        startBtn.addEventListener('click', coinToss)
 
         // reset button
 
