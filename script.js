@@ -1,22 +1,15 @@
 
 let game = (() => {
 
-    let playerFactory = (name, mark, turn) => {
-
-        this.name = name
-
-        this.turn = turn
+    let playerFactory = (name, mark) => {
 
         let play = (event) => {
 
-            let justPlayed = name
-
-            turn = false
-
             let cell = event.target
-            // let currentPlayer //player's turn
 
             if(cell.hasChildNodes()) return  // to prevent adding more Xs
+
+            //append mark depending on whose player turn
            
             cell.append(mark)
 
@@ -64,12 +57,12 @@ let game = (() => {
                     gameboard.ltrDiagonal.push(mark)            
             }
 
-            return justPlayed, turn
+
         }
 
+        let justPlayed = null
 
-
-        return {name, mark, play}
+        return {name, mark, play, justPlayed}
     }
 
 
@@ -135,6 +128,15 @@ let game = (() => {
     let gameFlow = () => {
         
         let whoseTurn = coinToss() ? playerOne.name : playerTwo.name
+
+        if(whoseTurn === playerOne.name) {
+            playerOne.play()
+            playerOne.justPlayed = true
+        } else {
+            playerTwo.play()
+            playerTwo.justPlayed = true
+        }
+
 
         return whoseTurn
 
