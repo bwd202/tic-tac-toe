@@ -14,7 +14,7 @@ let game = (() => {
 
             let cell = event.target
 
-            if(cell.hasChildNodes()) return  // to prevent adding more Xs
+            if(cell.hasChildNodes()) return  // to prevent adding more marks
            
             cell.append(mark)
 
@@ -112,11 +112,12 @@ let game = (() => {
                 
                 console.log(playerOne.name + ' wins')
 
-        } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'O')) {
+            } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'O')) {
 
                 console.log(playerTwo.name + ' wins')
+
+            } 
         }
-    }
     } 
     
     window.addEventListener('click', checkWinner)
@@ -161,22 +162,7 @@ let game = (() => {
     
     let board = document.querySelectorAll('.board')
 
-    board.forEach(item => item.addEventListener('click', playTurn
-    
-    // (event) => {
-
-    //     let turn = gameFlow()
-
-    //     if(turn == playerOne.name) {
-    //         playerOne.play(event)
-    //         lastToPlay = playerOne.name
-    //     } else {
-    //         playerTwo.play(event)
-    //         lastToPlay = playerTwo.name
-    //     } 
-    // }
-
-    ))
+    board.forEach(item => item.addEventListener('click', playTurn))
 
     let gameboard = {
                
