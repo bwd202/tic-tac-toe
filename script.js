@@ -82,6 +82,8 @@ let game = (() => {
 
         let playerName = document.querySelector('[placeholder]').value
 
+        if(playerName == '') playerName = 'Player 1'
+
         let newPlayer = playerFactory(playerName, 'X')
         
         return newPlayer.name
