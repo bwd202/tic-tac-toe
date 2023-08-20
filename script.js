@@ -1,3 +1,4 @@
+'use strict'
 
 let game = (() => {
 
@@ -87,9 +88,9 @@ let game = (() => {
         return playerName
     }
 
-    playerOne = playerFactory(addNewPlayer(), 'X')
+    let playerOne = playerFactory(addNewPlayer(), 'X')
 
-    playerTwo = playerFactory('Computer', 'O')
+    let playerTwo = playerFactory('Computer', 'O')
 
     // ADD PLAYER BTN
 
@@ -99,7 +100,7 @@ let game = (() => {
 
     let checkWinner = function() {
 
-        for(array in gameboard) {
+        for(let array in gameboard) {
 
             if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'X')) {
 
@@ -141,7 +142,6 @@ let game = (() => {
             lastToPlay = playerTwo.name
         } 
 
-        return lastToPlay
     }
 
     // BOARD
