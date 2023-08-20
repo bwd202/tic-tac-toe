@@ -8,8 +8,6 @@ let game = (() => {
             let cell = event.target
 
             if(cell.hasChildNodes()) return  // to prevent adding more Xs
-
-            //append mark depending on whose player turn
            
             cell.append(mark)
 
@@ -65,21 +63,6 @@ let game = (() => {
         return {name, mark, play, justPlayed}
     }
 
-
-    let addNewPlayer = function() {
-
-        let playerName = document.querySelector('[placeholder]').value
-
-        let newPlayer = playerFactory(playerName, 'X')
-        
-        return newPlayer
-    }
-
-    let playerOne = addNewPlayer()
-
-    playerTwo = playerFactory('Computer', 'O')
-
-
     let displayPlayerNames = function() {
 
         let _playerOne = document.querySelector('.player-name:first-child')
@@ -88,12 +71,26 @@ let game = (() => {
 
         let _playerTwo = document.querySelector('.player-name:nth-child(3)')
 
-        _playerOne.textContent = playerOne.name
+        _playerOne.textContent = addNewPlayer()
 
         versus.textContent = 'vs'
 
         _playerTwo.textContent = 'Computer'
     }
+
+    let addNewPlayer = function() {
+
+        let playerName = document.querySelector('[placeholder]').value
+
+        let newPlayer = playerFactory(playerName, 'X')
+        
+        return newPlayer.name
+    }
+
+
+    let playerOne = addNewPlayer()
+
+    playerTwo = playerFactory('Computer', 'O')
 
     // add player button
 
