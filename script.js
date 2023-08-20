@@ -58,6 +58,7 @@ let game = (() => {
                     gameboard.ltrDiagonal.push(mark)            
             }
 
+            lastToPlay = name
 
         }
 
@@ -136,10 +137,8 @@ let game = (() => {
 
         if(turn == playerOne.name) {
             playerOne.play(event)
-            lastToPlay = playerOne.name
         } else {
             playerTwo.play(event)
-            lastToPlay = playerTwo.name
         } 
 
     }
