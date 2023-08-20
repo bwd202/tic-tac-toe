@@ -4,6 +4,10 @@ let game = (() => {
 
     let lastToPlay = null
 
+    let returnLastToPlay = () => {
+        return lastToPlay
+    }
+
     let playerFactory = (name, mark) => {
 
         let play = (event) => {
@@ -13,6 +17,8 @@ let game = (() => {
             if(cell.hasChildNodes()) return  // to prevent adding more Xs
            
             cell.append(mark)
+
+            lastToPlay = name
 
             switch(cell.dataset.square) {
                 case '1':
@@ -57,9 +63,6 @@ let game = (() => {
                     gameboard.thirdColumn.push(mark)
                     gameboard.ltrDiagonal.push(mark)            
             }
-
-            lastToPlay = name
-
         }
 
         return {name, mark, play}
@@ -133,13 +136,24 @@ let game = (() => {
 
     let playTurn = function(event) {
 
-        let turn = gameFlow()
+        if(lastToPlay == null) {
+            
+            let turn = gameFlow()
 
-        if(turn == playerOne.name) {
-            playerOne.play(event)
-        } else {
+            if(turn == playerOne.name) {
+
+                playerOne.play(event)
+
+            } else {
+
+                playerTwo.play(event)
+            } 
+
+        } else if(lastToPlay == playerOne.name) {
+
             playerTwo.play(event)
-        } 
+
+        } else playerOne.play(event)
 
     }
 
@@ -187,6 +201,6 @@ let game = (() => {
 
         resetBtn.addEventListener('click', () => window.location.reload())
 
-    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, resetBtn, playerFactory, playerOne, playerTwo, lastToPlay}
+    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, resetBtn, playerFactory, playerOne, playerTwo, returnLastToPlay}
  
 })()
