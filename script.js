@@ -1,9 +1,9 @@
 
 let game = (() => {
 
-    let playerFactory = (name, mark) => {
+    let lastToPlay = null
 
-        let justPlayed = null
+    let playerFactory = (name, mark) => {
 
         let play = (event) => {
 
@@ -60,7 +60,7 @@ let game = (() => {
 
         }
 
-        return {name, mark, play, justPlayed}
+        return {name, mark, play}
     }
 
     let displayPlayerNames = function() {
@@ -129,23 +129,41 @@ let game = (() => {
     
     }
 
+    let playTurn = function(event) {
+
+        let turn = gameFlow()
+
+        if(turn == playerOne.name) {
+            playerOne.play(event)
+            lastToPlay = playerOne.name
+        } else {
+            playerTwo.play(event)
+            lastToPlay = playerTwo.name
+        } 
+
+        return lastToPlay
+    }
+
     // BOARD
     
     let board = document.querySelectorAll('.board')
 
-    board.forEach(item => item.addEventListener('click', (event) => {
+    board.forEach(item => item.addEventListener('click', playTurn
+    
+    // (event) => {
 
-        let turn = gameFlow()
+    //     let turn = gameFlow()
 
-        if(turn === playerOne.name) {
-            playerOne.play(event)
-            playerOne.justPlayed = true
-        } else {
-            playerTwo.play(event)
-            playerTwo.justPlayed = true
-        }
+    //     if(turn == playerOne.name) {
+    //         playerOne.play(event)
+    //         lastToPlay = playerOne.name
+    //     } else {
+    //         playerTwo.play(event)
+    //         lastToPlay = playerTwo.name
+    //     } 
+    // }
 
-    }))
+    ))
 
     let gameboard = {
                
@@ -170,6 +188,6 @@ let game = (() => {
 
         resetBtn.addEventListener('click', () => window.location.reload())
 
-    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, resetBtn, playerFactory, playerOne, playerTwo}
+    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, resetBtn, playerFactory, playerOne, playerTwo, lastToPlay}
  
 })()
