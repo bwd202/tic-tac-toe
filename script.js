@@ -3,6 +3,8 @@ let game = (() => {
 
     let playerFactory = (name, mark) => {
 
+        let justPlayed = null
+
         let play = (event) => {
 
             let cell = event.target
@@ -58,8 +60,6 @@ let game = (() => {
 
         }
 
-        let justPlayed = null
-
         return {name, mark, play, justPlayed}
     }
 
@@ -83,18 +83,15 @@ let game = (() => {
         let playerName = document.querySelector('[placeholder]').value
 
         if(playerName == '') playerName = 'Player 1'
-
-        let newPlayer = playerFactory(playerName, 'X')
         
-        return newPlayer.name
+        return playerName
     }
 
-
-    let playerOne = addNewPlayer()
+    playerOne = playerFactory(addNewPlayer(), 'X')
 
     playerTwo = playerFactory('Computer', 'O')
 
-    // add player button
+    // ADD PLAYER BTN
 
     let addPlayerBtn = document.querySelector('#add-player')
 
@@ -132,13 +129,15 @@ let game = (() => {
     
     }
 
-    // board cells
+    // BOARD
     
     let board = document.querySelectorAll('.board')
 
     board.forEach(item => item.addEventListener('click', (event) => {
 
-        if(whoseTurn === playerOne.name) {
+        let turn = gameFlow()
+
+        if(turn === playerOne.name) {
             playerOne.play(event)
             playerOne.justPlayed = true
         } else {
@@ -161,13 +160,11 @@ let game = (() => {
 
         }
 
-        // start button
+        // START & RESET BTNS
 
         let startBtn = document.querySelector('#start')
 
         startBtn.addEventListener('click', gameFlow)
-
-        // reset button
 
         let resetBtn = document.querySelector('#reset')
 
