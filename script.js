@@ -106,7 +106,11 @@ let game = (() => {
 
         let message = ''
 
+        let tieCondition = null // = 24, 8 arrays * 3 (max length)
+
         for(let array in gameboard) {
+
+            tieCondition += gameboard[array].length
 
             if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'X')) {
 
@@ -131,6 +135,17 @@ let game = (() => {
                 document.querySelector('.player-name:nth-child(3)').textContent = ''
                 
             } 
+        }
+
+        if(tieCondition == 24) {
+
+                message = 'It\'s a tie'
+
+                document.querySelector('.player-name:first-child').textContent = message
+
+                document.querySelector('.player-name:nth-child(2)').textContent = ''
+
+                document.querySelector('.player-name:nth-child(3)').textContent = ''
         }
     } 
     
