@@ -2,6 +2,19 @@
 
 let game = (() => {
 
+    let gameboard = {
+               
+        topRow: [],
+        middleRow: [],
+        bottomRow: [],
+        firstColumn: [],
+        secondColumn: [],
+        thirdColumn: [],
+        ltrDiagonal: [],
+        rtlDiagonal: []
+
+        }
+
     let lastToPlay = null
 
     let returnLastToPlay = () => {
@@ -124,6 +137,8 @@ let game = (() => {
 
                 document.querySelector('.player-name:nth-child(3)').textContent = ''
 
+                board.forEach(item => item.removeEventListener('click', playTurn))
+
             } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'O')) {
 
                 message = playerTwo.name + ' wins'
@@ -133,6 +148,8 @@ let game = (() => {
                 document.querySelector('.player-name:nth-child(2)').textContent = ''
 
                 document.querySelector('.player-name:nth-child(3)').textContent = ''
+
+                board.forEach(item => item.removeEventListener('click', playTurn))
                 
             } 
         }
@@ -188,33 +205,19 @@ let game = (() => {
     }
 
     // BOARD
+
+    let board = document.querySelectorAll('.board')
     
-    // let board = document.querySelectorAll('.board')
+    let startBtnFn = () => {
 
-    // board.forEach(item => item.addEventListener('click', playTurn))
+        board.forEach(item => item.addEventListener('click', playTurn))
 
-    let gameboard = {
-               
-        topRow: [],
-        middleRow: [],
-        bottomRow: [],
-        firstColumn: [],
-        secondColumn: [],
-        thirdColumn: [],
-        ltrDiagonal: [],
-        rtlDiagonal: []
-
-        }
+    }
 
     // START & RESET BTNS
     let startBtn = document.querySelector('#start')
 
-    startBtn.addEventListener('click', () => {
-
-        let board = document.querySelectorAll('.board')
-
-        board.forEach(item => item.addEventListener('click', playTurn))
-    })
+    startBtn.addEventListener('click', startBtnFn)
 
     let resetBtn = document.querySelector('#reset')
 
