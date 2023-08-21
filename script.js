@@ -104,18 +104,32 @@ let game = (() => {
 
     let checkWinner = function() {
 
+        let message = ''
+
         for(let array in gameboard) {
 
             if(gameboard[array].length == 3 && gameboard[array].every(item => item == 'X')) {
 
                 // console.log(gameboard[array])
-                
-                console.log(playerOne.name + ' wins')
+
+                message = playerOne.name + ' wins'
+
+                document.querySelector('.player-name:first-child').textContent = message
+
+                document.querySelector('.player-name:nth-child(2)').textContent = ''
+
+                document.querySelector('.player-name:nth-child(3)').textContent = ''
 
             } else if (gameboard[array].length == 3 && gameboard[array].every(item => item == 'O')) {
 
-                console.log(playerTwo.name + ' wins')
+                message = playerTwo.name + ' wins'
 
+                document.querySelector('.player-name:first-child').textContent = message
+
+                document.querySelector('.player-name:nth-child(2)').textContent = ''
+
+                document.querySelector('.player-name:nth-child(3)').textContent = ''
+                
             } 
         }
     } 
