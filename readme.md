@@ -1,3 +1,5 @@
+[Play game](https://bwd202.github.io/tic-tac-toe/)
+
 # How to play
 - write your name in the input field [optional]
 - press **start**
