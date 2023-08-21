@@ -1,4 +1,9 @@
-## bugs
+# How to play
+- write your name in the input field [optional]
+- press **start**
+- click anywhere on the board
 
-- ~~playerOne name won't show if 'add player' button is not pressed before starting to click on board~~
-- showing previous player's name on win, instead of current player name
+## Game rules
+- first player to get 3 marks in a row, column or diagonal wins the game
+- human player is 'X'
+- computer is 'O'
