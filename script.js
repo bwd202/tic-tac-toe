@@ -189,9 +189,9 @@ let game = (() => {
 
     // BOARD
     
-    let board = document.querySelectorAll('.board')
+    // let board = document.querySelectorAll('.board')
 
-    board.forEach(item => item.addEventListener('click', playTurn))
+    // board.forEach(item => item.addEventListener('click', playTurn))
 
     let gameboard = {
                
@@ -206,16 +206,20 @@ let game = (() => {
 
         }
 
-        // START & RESET BTNS
+    // START & RESET BTNS
+    let startBtn = document.querySelector('#start')
 
-        let startBtn = document.querySelector('#start')
+    startBtn.addEventListener('click', () => {
 
-        startBtn.addEventListener('click', gameFlow)
+        let board = document.querySelectorAll('.board')
 
-        let resetBtn = document.querySelector('#reset')
+        board.forEach(item => item.addEventListener('click', playTurn))
+    })
 
-        resetBtn.addEventListener('click', () => window.location.reload())
+    let resetBtn = document.querySelector('#reset')
 
-    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, resetBtn, playerFactory, playerOne, playerTwo, returnLastToPlay}
+    resetBtn.addEventListener('click', () => window.location.reload())
+
+    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, playerFactory, playerOne, playerTwo, returnLastToPlay}
  
 })()
