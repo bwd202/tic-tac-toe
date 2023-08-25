@@ -84,21 +84,6 @@ let game = (() => {
 
     // PLAYER NAME, BTN
 
-    let displayPlayerNames = function() {
-
-        let _playerOne = document.querySelector('.player-name:first-child')
-
-        let versus = document.querySelector('.player-name:nth-child(2)')
-
-        let _playerTwo = document.querySelector('.player-name:nth-child(3)')
-
-        _playerOne.textContent = addNewPlayer()
-
-        versus.textContent = 'vs'
-
-        _playerTwo.textContent = 'Computer'
-    }
-
     let addNewPlayer = function() {
 
         let playerName = document.querySelector('[placeholder]').value
@@ -109,6 +94,21 @@ let game = (() => {
     let playerOne = playerFactory(addNewPlayer(), 'X')
 
     let playerTwo = playerFactory('Computer', 'O')
+
+    let displayPlayerNames = function() {
+
+        let _playerOne = document.querySelector('.player-name:first-child')
+
+        let versus = document.querySelector('.player-name:nth-child(2)')
+
+        let _playerTwo = document.querySelector('.player-name:nth-child(3)')
+
+        _playerOne.textContent = playerOne.name
+
+        versus.textContent = 'vs'
+
+        _playerTwo.textContent = playerTwo.name
+    }
 
     let addPlayerBtn = document.querySelector('#add-player')
 
@@ -155,7 +155,7 @@ let game = (() => {
             } 
         }
 
-        // all cells are marked: 8 arrays * 3 (array max length) = 24
+        // below means all cells are marked: 8 arrays * 3 (array max length) = 24
         if(tieCondition == 24) {
 
                 message = 'It\'s a tie'
