@@ -99,10 +99,8 @@ let game = (() => {
     let addNewPlayer = function() {
 
         let playerName = document.querySelector('[placeholder]').value
-
-        if(playerName == '') playerName = 'Player 1'
         
-        return playerName
+        return playerName ? playerName : 'Player 1'
     }
 
     let playerOne = playerFactory(addNewPlayer(), 'X')
