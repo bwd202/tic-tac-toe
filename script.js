@@ -16,7 +16,8 @@ let game = (() => {
         }
 
     let lastToPlay = null
-
+    
+    //below is debugging fn, exports internal var lastToPlay in browser's console
     let returnLastToPlay = () => {
         return lastToPlay
     }
@@ -81,6 +82,8 @@ let game = (() => {
         return {name, mark, play}
     }
 
+    // PLAYER NAME, BTN
+
     let displayPlayerNames = function() {
 
         let _playerOne = document.querySelector('.player-name:first-child')
@@ -107,17 +110,17 @@ let game = (() => {
 
     let playerTwo = playerFactory('Computer', 'O')
 
-    // ADD PLAYER BTN
-
     let addPlayerBtn = document.querySelector('#add-player')
 
     addPlayerBtn.addEventListener('click', displayPlayerNames)
+
+    // GAME FLOW & CHECK WINNER
 
     let checkWinner = function() {
 
         let message = ''
 
-        let tieCondition = null // = 24, 8 arrays * 3 (max length)
+        let tieCondition = null
 
         for(let array in gameboard) {
 
@@ -152,6 +155,7 @@ let game = (() => {
             } 
         }
 
+        // all cells are marked: 8 arrays * 3 (array max length) = 24
         if(tieCondition == 24) {
 
                 message = 'It\'s a tie'
@@ -221,6 +225,6 @@ let game = (() => {
 
     resetBtn.addEventListener('click', () => window.location.reload())
 
-    return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, playerFactory, playerOne, playerTwo, returnLastToPlay}
+    // return {gameboard, displayPlayerNames, addNewPlayer, coinToss, gameFlow, playerFactory, playerOne, playerTwo, returnLastToPlay}
  
 })()
