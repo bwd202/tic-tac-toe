@@ -3,7 +3,7 @@
 # How to play
 - write your name in the input field [optional]
 - press **start**
-- click anywhere on the board
+- click anywhere on the board to play
 - press **reset** to clear the board
 
 #### Rules
